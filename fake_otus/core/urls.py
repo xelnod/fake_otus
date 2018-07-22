@@ -5,5 +5,6 @@ from core.views import main
 urlpatterns = [
     path('', main),
     path('admin/', admin.site.urls),
-    path('users/', include('users.urls'))
+    path('users/', include('users.urls')),
+    path('courses/', include('courses.urls'))
 ]

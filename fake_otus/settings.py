@@ -6,7 +6,9 @@ from configurations.values import DatabaseURLValue
 
 class Base(Configuration):
 
-    BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+    BASE_DIR = os.path.dirname(PROJECT_ROOT)
+    STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
     DEBUG = False
     ALLOWED_HOSTS = []
@@ -21,6 +23,7 @@ class Base(Configuration):
         'django_extensions',
         'core',
         'users',
+        'courses',
     ]
 
     MIDDLEWARE = [
@@ -38,7 +41,7 @@ class Base(Configuration):
     TEMPLATES = [
         {
             'BACKEND': 'django.template.backends.django.DjangoTemplates',
-            'DIRS': [],
+            'DIRS': [os.path.join(PROJECT_ROOT, 'templates')],
             'APP_DIRS': True,
             'OPTIONS': {
                 'context_processors': [
@@ -90,7 +93,8 @@ class Base(Configuration):
 
     STATIC_URL = '/static/'
 
-    KEK = 'pek'
+    LOGIN_REDIRECT_URL = '/'
+
 
 class Dev(Base):
 

@@ -4,3 +4,4 @@ django-configurations >= 2.0
 dj-database-url
 Werkzeug >= 0.14.1
 ipython
+factory-boy>=2.11.1

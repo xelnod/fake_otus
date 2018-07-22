@@ -1,1 +1,8 @@
-{{ form }}
+{% extends '__base.html' %}
+{% block content %}
+<form method="POST" target="{% url 'login' %}">
+{% csrf_token %}
+{{ form.as_p }}
+<button type="submit">Впустите меня!</button>
+</form>
+{% endblock %}
