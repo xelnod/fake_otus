@@ -1,0 +1,17 @@
+
+  <div class="header">
+    <div class="header__container">
+      <div class="header__right">
+        <div class="header-menu__username">
+            {% if user.is_authenticated %}
+                {{ user.username }} (<a href="{% url 'logout' %}">Выйти</a>)
+            {% else %}
+                <a href="{% url 'login' %}">Войти</a>
+            {% endif %}
+        </div>
+        <div class="header-menu-dropdown header-menu-dropdown__right">
+            Dropdown content
+        </div>
+      </div>
+    </div>
+  </div>
